@@ -175,6 +175,54 @@ namespace _2.Poker
             return 500 + HighCard(cards);
         }
 
+        private int FullHouse(Card[] cards)
+        {
+            int n = 5;
+            int threeNumber = ThreeOfAKind(cards) - 300;
+            if (threeNumber < 0)
+                return -1;
+
+            int pairNumber = -1;
+            for (int i = 0; i < n; i++)
+            {
+                if (cards[i].Number == threeNumber)
+                    continue;
+                if (pairNumber == -1)
+                    pairNumber = cards[i].Number;
+                else if (cards[i].Number != pairNumber)
+                    return -1;
+            }
+            return 600 + threeNumber * 5 + pairNumber;
+        }
+
+        private int FourOfAKind(Card[] cards)
+        {
+            int n = 5;
+
+            for (int i = 0; i < n - 3; i++)
+                for (int j = i + 1; j < n - 2; j++)
+                    for (int k = j + 1; k < n - 1; k++)
+                        for (int l = k + 1; l < n; l++)
+                        {
+                            if (cards[i].Number == cards[j].Number
+                                && cards[i].Number == cards[k].Number
+                                && cards[i].Number == cards[l].Number)
+                                return 700 + cards[i].Number;
+                        }
+            return -1;
+        }
+
+        private int StraightFlush(Card[] cards)
+        {
+            if (Flush(cards) == -1)
+                return -1;
+
+            int number = Straight(cards);
+            if (number == -1)
+                return -1;
+            return 400 + number; // number e din intervalul [400, 500) => scorul e din intervalul [800, 900)
+        }
+
         public PictureBox CreatePictureBoxForNewCard()
         {
             PictureBox card = new PictureBox();
