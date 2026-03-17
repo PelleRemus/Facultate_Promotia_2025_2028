@@ -28,165 +28,176 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            colorDialog1 = new ColorDialog();
+            textBox1 = new TextBox();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
+            button7 = new Button();
+            button8 = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(720, 720);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox1.Location = new Point(14, 14);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(840, 830);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold);
-            this.textBox1.Location = new System.Drawing.Point(738, 12);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(740, 468);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "1 2 3 4 5\r\n2 3 4 5 6\r\n3 4 5 6 7\r\n4 5 6 7 8\r\n5 6 7 8 9";
+            textBox1.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            textBox1.Location = new Point(861, 14);
+            textBox1.Margin = new Padding(4, 3, 4, 3);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(863, 539);
+            textBox1.TabIndex = 2;
+            textBox1.Text = "1 2 3 4 5\r\n2 3 4 5 6\r\n3 4 5 6 7\r\n4 5 6 7 8\r\n5 6 7 8 9";
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Crimson;
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1359, 685);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 45);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.BackColor = Color.Crimson;
+            button1.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1586, 790);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(139, 52);
+            button1.TabIndex = 3;
+            button1.Text = "Clear";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(738, 486);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 57);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Cruce";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.BackColor = Color.CornflowerBlue;
+            button2.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(861, 561);
+            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(210, 66);
+            button2.TabIndex = 4;
+            button2.Text = "Cruce";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button3.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(924, 486);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(180, 57);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "X";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.BackColor = Color.CornflowerBlue;
+            button3.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(1078, 561);
+            button3.Margin = new Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(210, 66);
+            button3.TabIndex = 5;
+            button3.Text = "X";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(738, 549);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(180, 57);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Spirala";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            button4.BackColor = Color.CornflowerBlue;
+            button4.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(861, 633);
+            button4.Margin = new Padding(4, 3, 4, 3);
+            button4.Name = "button4";
+            button4.Size = new Size(210, 66);
+            button4.TabIndex = 6;
+            button4.Text = "Spirala";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button5.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold);
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(924, 549);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(180, 57);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "NSEV";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            button5.BackColor = Color.CornflowerBlue;
+            button5.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            button5.ForeColor = Color.White;
+            button5.Location = new Point(1078, 633);
+            button5.Margin = new Padding(4, 3, 4, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(210, 66);
+            button5.TabIndex = 7;
+            button5.Text = "NSEV";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button6.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold);
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(1110, 486);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(180, 57);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "+ x Diagonale";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            button6.BackColor = Color.CornflowerBlue;
+            button6.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            button6.ForeColor = Color.White;
+            button6.Location = new Point(1295, 561);
+            button6.Margin = new Padding(4, 3, 4, 3);
+            button6.Name = "button6";
+            button6.Size = new Size(210, 66);
+            button6.TabIndex = 8;
+            button6.Text = "+ x Diagonale";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // button7
             // 
-            this.button7.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button7.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold);
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(1110, 549);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(180, 57);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "Serpuit";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            button7.BackColor = Color.CornflowerBlue;
+            button7.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            button7.ForeColor = Color.White;
+            button7.Location = new Point(1295, 633);
+            button7.Margin = new Padding(4, 3, 4, 3);
+            button7.Name = "button7";
+            button7.Size = new Size(210, 66);
+            button7.TabIndex = 9;
+            button7.Text = "Serpuit";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button8
             // 
-            this.button8.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button8.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold);
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(1296, 486);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(180, 57);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "Rotire 90";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            button8.BackColor = Color.CornflowerBlue;
+            button8.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            button8.ForeColor = Color.White;
+            button8.Location = new Point(1512, 561);
+            button8.Margin = new Padding(4, 3, 4, 3);
+            button8.Name = "button8";
+            button8.Size = new Size(210, 66);
+            button8.TabIndex = 10;
+            button8.Text = "Rotire 90";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1490, 742);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1738, 856);
+            Controls.Add(button8);
+            Controls.Add(button7);
+            Controls.Add(button6);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(textBox1);
+            Controls.Add(pictureBox1);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "Form1";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

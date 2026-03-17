@@ -54,6 +54,7 @@ namespace ParcurgereMatrici
             }
         }
 
+        // Clear
         private void button1_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -106,37 +107,239 @@ namespace ParcurgereMatrici
         // Mijloace
         private void button2_Click(object sender, EventArgs e)
         {
+            int n = 11;
+            int[,] matrix = new int[n, n];
+
+            /*for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    if (i == n / 2 || j == n / 2)
+                        matrix[i, j] = 1;
+                }
+            */
+            // Mai simplu: parcurgem doar cat este nevoie, si modificam indicii
+            for (int i = 0; i < n; i++)
+            {
+                matrix[i, n / 2] = 1;
+                matrix[n / 2, i] = 1;
+            }
+
+            AddMatrixToTextBox(matrix, n, n);
         }
 
         // Diagonale
         private void button3_Click(object sender, EventArgs e)
         {
-        }
+            int n = 19;
+            int[,] matrix = new int[n, n];
 
-        // Spirala
-        private void button4_Click(object sender, EventArgs e)
-        {
-        }
+            /*for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    if (i == j || i + j == n - 1)
+                        matrix[i, j] = 1;
+                }
+            */
+            // Mai simplu: parcurgem doar cat este nevoie, si modificam indicii
+            for (int i = 0; i < n; i++)
+            {
+                matrix[i, i] = 1;
+                matrix[i, n - i - 1] = 1;
+            }
 
-        // NSEV
-        private void button5_Click(object sender, EventArgs e)
-        {
+            AddMatrixToTextBox(matrix, n, n);
         }
 
         // Mijloace si diagonale
         private void button6_Click(object sender, EventArgs e)
         {
+            int n = 19;
+            int[,] matrix = new int[n, n];
+
+            for (int i = 0; i < n; i++)
+            {
+                matrix[i, n / 2] = 1;
+                matrix[n / 2, i] = 1;
+                matrix[i, i] = 1;
+                matrix[i, n - i - 1] = 1;
+            }
+
+            AddMatrixToTextBox(matrix, n, n);
         }
 
-        // Serpuit
-        private void button7_Click(object sender, EventArgs e)
+        // NSEV
+        private void button5_Click(object sender, EventArgs e)
         {
+            int n = 19;
+            int[,] matrix = new int[n, n];
+
+            /*for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    // Nord: deasupra diagonalei principale si deasupra celei secundare
+                    if (i > j && i + j < n - 1)
+                    {
+                        matrix[i, j] = 1;
+                    }
+                    // Est: deasupra diagonalei principale si sub cea secundara
+                    else if (i > j && i + j > n - 1)
+                    {
+                        matrix[i, j] = 4;
+                    }
+                    // Sud: sub diagonala principala si sub cea secundara
+                    else if (i < j && i + j > n - 1)
+                    {
+                        matrix[i, j] = 6;
+                    }
+                    // Vest: sub diagonala principala si deasupra celei secundare
+                    else if (i < j && i + j < n - 1)
+                    {
+                        matrix[i, j] = 7;
+                    }
+                }
+            */
+            // Mai simplu / scurt
+            for (int i = 0; i < n / 2; i++)
+                for (int j = i + 1; j < n - i - 1; j++)
+                {
+                    matrix[i, j] = 1;           // Nord
+                    matrix[j, n - i - 1] = 4;   // Est
+                    matrix[n - i - 1, j] = 6;   // Sud
+                    matrix[j, i] = 7;           // Vest
+                }
+
+            AddMatrixToTextBox(matrix, n, n);
         }
 
         // Rotire 90 grade
         int[,] matrixRotation = new int[5, 10];
         private void button8_Click(object sender, EventArgs e)
         {
+            int n = 5;
+            int[,] matrix = new int[2 * n, n];
+
+            // Generam o matrice
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    matrix[i, j] = i + j + 1;
+                    matrix[n + i, j] = i + j + 1;
+                }
+
+            // Punem valorile rotite cu 90 de grade spre dreapta in matrixRotation
+            for (int i = 0; i < 2 * n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    // coltul din stanga sus trebuie sa ajunga in coltul din dreapta sus,
+                    // cel din dreapta sus, in dreapta jos,
+                    // cel din dreapta jos, in stanga jos, etc.
+                    matrixRotation[j, 2 * n - i - 1] = matrix[i, j];
+                }
+
+            AddMatrixToTextBox(matrixRotation, n, 2 * n);
+        }
+
+        // Spirala
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int n = 12;
+            int[,] matrix = new int[n, n];
+            int value = 1;
+
+            // Chenar: parcurgem prima linie, ultima coloana, ultima linie, prima coloana
+            // Spirala: mai adaugam un for cu k de la 0 pana la n/2, iar in codul interior,
+            // in loc de 0 scriem kk, iar in loc de n-1 scriem n-k-1
+            for (int k = 0; k < n / 2; k++)
+            {
+                for (int i = k; i < n - k - 1; i++)
+                    matrix[k, i] = value;
+                value++;
+
+                for (int i = k; i < n - k - 1; i++)
+                    matrix[i, n - k - 1] = value;
+                value++;
+
+                for (int i = k; i < n - k - 1; i++)
+                    matrix[n - k - 1, n - i - 1] = value;
+                value++;
+
+                for (int i = k; i < n - k - 1; i++)
+                    matrix[n - i - 1, k] = value;
+                value++;
+            }
+
+            AddMatrixToTextBox(matrix, n, n);
+        }
+
+        // Serpuit
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // La curs: se ia in considerare diagonala secundara, si se aduna i si j. Daca suma lor este para,
+            // atunci elementele de pe acea diagonala sunt parcurse de sus in jos, altfel, de jos in sus
+
+            // Noi folosim un bool care isi tot inverseaza valoarea, pentru a ne asigura ca parcurgem in directia buna
+            int value = 0;
+            int n = 13;
+            int[,] matrix = new int[n, n];
+            bool upDirection = true;
+
+            for (int diagonalSize = 1; diagonalSize <= n; diagonalSize++)
+            {
+                if (upDirection)
+                    TraverseUpwards(matrix, diagonalSize, value);
+                else
+                    TraverseDownwards(matrix, diagonalSize, value);
+
+                value++;
+                upDirection = !upDirection;
+            }
+
+            for (int diagonalSize = n - 1; diagonalSize > 0; diagonalSize--)
+            {
+                if (upDirection)
+                    TraverseUpwards(matrix, diagonalSize, value, true);
+                else
+                    TraverseDownwards(matrix, diagonalSize, value, true);
+
+                value++;
+                upDirection = !upDirection;
+            }
+
+            AddMatrixToTextBox(matrix, n, n);
+        }
+        private void TraverseUpwards(int[,] matrix, int diagonalSize, int value, bool isSecondHalf = false)
+        {
+            int i = diagonalSize - 1;
+            int j = 0;
+            if (isSecondHalf)
+            {
+                i = matrix.GetLength(0) - 1;
+                j = matrix.GetLength(1) - diagonalSize;
+            }
+
+            while (diagonalSize > 0)
+            {
+                matrix[i, j] = value;
+                i--; j++;
+                diagonalSize--;
+            }
+        }
+        private void TraverseDownwards(int[,] matrix, int diagonalSize, int value, bool isSecondHalf = false)
+        {
+            int i = 0;
+            int j = diagonalSize - 1;
+            if (isSecondHalf)
+            {
+                i = matrix.GetLength(0) - diagonalSize;
+                j = matrix.GetLength(1) - 1;
+            }
+
+            while (diagonalSize > 0)
+            {
+                matrix[i, j] = value;
+                i++; j--;
+                diagonalSize--;
+            }
         }
     }
 }
