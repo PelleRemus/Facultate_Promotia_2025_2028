@@ -25,6 +25,9 @@
 
             Console.WriteLine();
             Console.WriteLine(Factorial(5000));
+
+            Console.WriteLine();
+            Console.WriteLine(Fibonacci(400));
         }
 
         // Calculati 5000!
@@ -33,6 +36,17 @@
             if (n == 0 || n == 1)
                 return new BigNumber(1);
             return new BigNumber(n) * Factorial(n - 1);
+        }
+
+        // Calculati elementul de pe pozitia 400 din sirul lui Fibonacci
+        static BigNumber Fibonacci(int n)
+        {
+            BigNumber[] fibonacci = new BigNumber[n];
+            fibonacci[0] = new BigNumber(1);
+            fibonacci[1] = new BigNumber(1);
+            for (int i = 2; i < n; i++)
+                fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+            return fibonacci[n - 1];
         }
 
         // Se da o matrice. Sa se extinda matricea, cu mediile aritmetice pe noile linii si coloane
