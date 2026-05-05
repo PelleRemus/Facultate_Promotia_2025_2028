@@ -56,7 +56,74 @@
 
         public static void FindPathLee()
         {
+            // Trebuie sa incepem cu drumul de la 0
+            path = new List<Point>();
 
+            Queue queue = new Queue();
+            queue.Add(new MapTile(destinationPosition.Y, destinationPosition.X, 1));
+            form.matrix[destinationPosition.Y, destinationPosition.X] = 1;
+            MapTile current;
+
+            // Intai cream matricea cu toate drumurile posibile spre destinatie
+            while (queue.length > 0)
+            {
+                current = queue.Remove();
+                // Stanga
+                if (current.column > 0 && form.matrix[current.line, current.column - 1] == 0)
+                {
+                    form.matrix[current.line, current.column - 1] = current.value + 1;
+                    queue.Add(new MapTile(current.line, current.column - 1, current.value + 1));
+                }
+                // Dreapta
+                if (current.column < form.m - 1 && form.matrix[current.line, current.column + 1] == 0)
+                {
+                    form.matrix[current.line, current.column + 1] = current.value + 1;
+                    queue.Add(new MapTile(current.line, current.column + 1, current.value + 1));
+                }
+                // Sus
+                if (current.line > 0 && form.matrix[current.line - 1, current.column] == 0)
+                {
+                    form.matrix[current.line - 1, current.column] = current.value + 1;
+                    queue.Add(new MapTile(current.line - 1, current.column, current.value + 1));
+                }
+                // Jos
+                if (current.line < form.n - 1 && form.matrix[current.line + 1, current.column] == 0)
+                {
+                    form.matrix[current.line + 1, current.column] = current.value + 1;
+                    queue.Add(new MapTile(current.line + 1, current.column, current.value + 1));
+                }
+            }
+
+            // Iar aici folosim matricea pentru a alege unul dintre aceste drumuri, de cea mai scurta lungime,
+            // de la pozitia curenta a jucatorului pana la destinatie
+            current = new MapTile(position.Y, position.X, form.matrix[position.Y, position.X]);
+            while (current.value > 1)
+            {
+                // stanga
+                if (current.column > 0 && form.matrix[current.line, current.column - 1] == current.value - 1)
+                {
+                    path.Add(new Point(current.column - 1, current.line));
+                    current = new MapTile(current.line, current.column - 1, current.value - 1);
+                }
+                // jos
+                else if (current.line < form.n - 1 && form.matrix[current.line + 1, current.column] == current.value - 1)
+                {
+                    path.Add(new Point(current.column, current.line + 1));
+                    current = new MapTile(current.line + 1, current.column, current.value - 1);
+                }
+                // dreapta
+                else if (current.column < form.m - 1 && form.matrix[current.line, current.column + 1] == current.value - 1)
+                {
+                    path.Add(new Point(current.column + 1, current.line));
+                    current = new MapTile(current.line, current.column + 1, current.value - 1);
+                }
+                // sus
+                else if (current.line > 0 && form.matrix[current.line - 1, current.column] == current.value - 1)
+                {
+                    path.Add(new Point(current.column, current.line - 1));
+                    current = new MapTile(current.line - 1, current.column, current.value - 1);
+                }
+            }
         }
     }
 }
